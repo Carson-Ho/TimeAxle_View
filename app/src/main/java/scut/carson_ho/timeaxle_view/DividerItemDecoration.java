@@ -2,6 +2,7 @@ package scut.carson_ho.timeaxle_view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -58,8 +59,8 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         // 赋值轴点圆的半径为10
         circle_radius = 10;
 
-        // 获取图标资源
-        // mIcon = BitmapFactory.decodeResource(context.getResources(), R.mipmap.logo);
+         // 获取图标资源
+         mIcon = BitmapFactory.decodeResource(context.getResources(), R.mipmap.logo);
 
     }
 
@@ -96,9 +97,9 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             float centerx = child.getLeft() - itemView_leftinterval / 3;
             float centery = child.getTop() - itemView_topinterval + (itemView_topinterval + child.getHeight()) / 2;
             // 绘制轴点圆
-            c.drawCircle(centerx, centery, circle_radius, mPaint);
+//            c.drawCircle(centerx, centery, circle_radius, mPaint);
             // 通过Canvas绘制角标
-            // c.drawBitmap(mIcon,centerx - circle_radius ,centery - circle_radius,mPaint);
+             c.drawBitmap(mIcon,centerx - circle_radius ,centery - circle_radius,mPaint);
 
             /**
              * 绘制上半轴线
@@ -117,6 +118,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             /**
              * 绘制下半轴线
              */
+
             // 上端点坐标(x,y)
             float bottomLine_up_x = centerx;
             float bottom_up_y = centery + circle_radius;
@@ -152,12 +154,12 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
                     break;
                 case (2):
                     // 设置日期绘制位置
-                    c.drawText("20:13", Text_x, Text_y, mPaint1);
+                    c.drawText("18:11", Text_x, Text_y, mPaint1);
                     c.drawText("2017.4.03", Text_x + 5, Text_y + 20, mPaint2);
                     break;
                 case (3):
                     // 设置日期绘制位置
-                    c.drawText("11:40", Text_x, Text_y, mPaint1);
+                    c.drawText("9:40", Text_x, Text_y, mPaint1);
                     c.drawText("2017.4.04", Text_x + 5, Text_y + 20, mPaint2);
                     break;
                 case (4):
@@ -167,7 +169,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
                     break;
                 case (5):
                     // 设置日期绘制位置
-                    c.drawText("22:40", Text_x, Text_y, mPaint1);
+                    c.drawText("20:40", Text_x, Text_y, mPaint1);
                     c.drawText("2017.4.04", Text_x + 5, Text_y + 20, mPaint2);
                     break;
                 default:c.drawText("已签收", Text_x, Text_y, mPaint1);
